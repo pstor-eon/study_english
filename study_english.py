@@ -15,14 +15,14 @@ class StudyKorean:
         self.master.title("Learn English Words")
         self.master.geometry("430x230")
 
-        self.word_label = Label(self.master, text="Korean:")
-        self.word_label.pack()
+        self.word_label = Label(self.master, text="Korean:", font=("Arial", 14))
+        self.word_label.pack(pady=10)
 
-        self.hint_label = Label(self.master, text="Hint: ")
-        self.hint_label.pack()
+        self.hint_label = Label(self.master, text="Hint: ", font=("Arial", 12))
+        self.hint_label.pack(pady=5)
 
-        self.entry = Entry(self.master)
-        self.entry.pack()
+        self.entry = Entry(self.master, font=("Arial", 12))
+        self.entry.pack(pady=5)
         self.entry.focus_set()
         self.entry.bind('<Return>', self.check_word)
 
@@ -35,13 +35,16 @@ class StudyKorean:
         self.hint_button = Button(self.button_frame, text="Show hint", font=("Arial", 12), command=self.show_hint)
         self.hint_button.pack(side=LEFT, padx=5)
 
+        self.skip_button = Button(self.button_frame, text="Skip", font=("Arial", 12), command=self.next_word)
+        self.skip_button.pack(side=LEFT, padx=5)
+
         self.stop_button = Button(self.button_frame, text="Stop", font=("Arial", 12), command=self.end_game)
         self.stop_button.pack(side=LEFT, padx=5)
 
 
         self.progress_text = StringVar()
-        self.progress_label = Label(self.master, textvariable=self.progress_text)
-        self.progress_label.pack()
+        self.progress_label = Label(self.master, textvariable=self.progress_text, font=("Arial", 12))
+        self.progress_label.pack(pady=5)
         self.update_progress()
 
         self.next_word()
